@@ -1,0 +1,43 @@
+01 Jul 2014 22:22:39,254 INFO  ~ Starting /Users/robert/work/play-git/testproject/1.3.x/continu
+01 Jul 2014 22:22:39,761 WARN  ~ You're running Play! in DEV mode
+01 Jul 2014 22:22:39,815 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+01 Jul 2014 22:22:45,707 ERROR ~ 
+
+@6ilim2e31
+Internal Server Error (500) for request GET /@tests
+
+Oops: UnexpectedException
+An unexpected error occured caused by exception UnexpectedException: While applying class play.classloading.enhancers.ContinuationEnhancer on controllers.Application
+
+play.exceptions.UnexpectedException: While applying play.CorePlugin@3ad5ff73 on controllers.Application
+	at play.plugins.PluginCollection.enhance(PluginCollection.java:556)
+	at play.classloading.ApplicationClasses$ApplicationClass.enhance(ApplicationClasses.java:235)
+	at play.classloading.ApplicationClassloader.loadApplicationClass(ApplicationClassloader.java:168)
+	at play.classloading.ApplicationClassloader.getAllClasses(ApplicationClassloader.java:432)
+	at play.Play.start(Play.java:527)
+	at play.Play.detectChanges(Play.java:653)
+	at play.Invoker$Invocation.init(Invoker.java:198)
+	at Invocation.HTTP Request(Play!)
+Caused by: play.exceptions.UnexpectedException: While applying class play.classloading.enhancers.ContinuationEnhancer on controllers.Application
+	at play.CorePlugin.enhance(CorePlugin.java:302)
+	at play.plugins.PluginCollection.enhance(PluginCollection.java:551)
+	... 7 more
+Caused by: java.lang.RuntimeException: java.lang.ClassNotFoundException: controllers.TestException
+	at org.objectweb.asm.ClassWriter.getCommonSuperClass(Unknown Source)
+	at org.objectweb.asm.ClassWriter.a(Unknown Source)
+	at org.objectweb.asm.Frame.a(Unknown Source)
+	at org.objectweb.asm.Frame.a(Unknown Source)
+	at org.objectweb.asm.MethodWriter.visitMaxs(Unknown Source)
+	at org.objectweb.asm.MethodVisitor.visitMaxs(Unknown Source)
+	at org.objectweb.asm.util.CheckMethodAdapter.visitMaxs(Unknown Source)
+	at org.apache.commons.javaflow.bytecode.transformation.asm.ContinuationMethodAdapter.visitMaxs(ContinuationMethodAdapter.java:313)
+	at org.objectweb.asm.tree.MethodNode.accept(Unknown Source)
+	at org.apache.commons.javaflow.bytecode.transformation.asm.ContinuationMethodAnalyzer.visitEnd(ContinuationMethodAnalyzer.java:143)
+	at org.objectweb.asm.ClassReader.b(Unknown Source)
+	at org.objectweb.asm.ClassReader.accept(Unknown Source)
+	at org.objectweb.asm.ClassReader.accept(Unknown Source)
+	at org.apache.commons.javaflow.bytecode.transformation.asm.AsmClassTransformer.transform(AsmClassTransformer.java:49)
+	at org.apache.commons.javaflow.bytecode.transformation.asm.AsmClassTransformer.transform(AsmClassTransformer.java:41)
+	at play.classloading.enhancers.ContinuationEnhancer.enhanceThisClass(ContinuationEnhancer.java:71)
+	at play.CorePlugin.enhance(CorePlugin.java:297)
+	... 8 more
